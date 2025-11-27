@@ -6331,13 +6331,25 @@
         // 메뉴 목록 로드
         function loadMenus(restaurantName) {
             const select = document.getElementById('menuSelect');
-            if (!select) return;
+            if (!select) {
+                console.error('menuSelect를 찾을 수 없습니다.');
+                return;
+            }
             
             const restaurantOption = document.querySelector(`#restaurantSelect option[value="${restaurantName}"]`);
-            if (!restaurantOption) return;
+            if (!restaurantOption) {
+                console.error('식당 옵션을 찾을 수 없습니다:', restaurantName);
+                return;
+            }
             
             const menus = JSON.parse(restaurantOption.getAttribute('data-menus') || '[]');
+            console.log('메뉴 로드:', restaurantName, '메뉴 개수:', menus.length);
+            
             select.innerHTML = '<option value="">메뉴를 선택하세요</option>';
+            
+            if (menus.length === 0) {
+                console.warn('메뉴가 없습니다:', restaurantName);
+            }
             
             menus.forEach(menu => {
                 const option = document.createElement('option');
@@ -6349,68 +6361,18 @@
                 select.appendChild(option);
             });
             
+            // 메뉴 선택 활성화
             select.disabled = false;
+            select.style.pointerEvents = 'auto';
+            select.style.opacity = '1';
             
-            const menuSelect = document.getElementById('menuSelect');
-            
-            // 메뉴 옵션이 동적으로 추가된 후에도 주황색 스타일 강제 적용
-            if (menuSelect) {
-                // 주황색 스타일 강제 적용 함수 (인라인 스타일로 강제)
-                function forceMenuOrangeStyle(select) {
-                    // 모든 옵션 초기화
-                    Array.from(select.options).forEach(opt => {
-                        opt.style.backgroundColor = '';
-                        opt.style.color = '';
-                        opt.removeAttribute('selected');
-                    });
-                    
-                    // 선택된 옵션에 주황색 강제 적용
-                    const selectedOption = select.options[select.selectedIndex];
-                    if (selectedOption && selectedOption.value) {
-                        selectedOption.style.backgroundColor = '#FD4B21';
-                        selectedOption.style.color = '#FFFFFF';
-                        selectedOption.setAttribute('selected', 'selected');
-                        // 인라인 스타일로 강제 적용
-                        selectedOption.setAttribute('style', 'background-color: #FD4B21 !important; color: #FFFFFF !important;');
-                    }
-                }
-                
-                // 모든 이벤트에서 주황색 스타일 강제 적용
-                menuSelect.addEventListener('change', function() {
-                    forceMenuOrangeStyle(this);
-                });
-                
-                menuSelect.addEventListener('focus', function() {
-                    forceMenuOrangeStyle(this);
-                });
-                
-                menuSelect.addEventListener('click', function() {
-                    setTimeout(() => forceMenuOrangeStyle(this), 10);
-                });
-                
-                menuSelect.addEventListener('mousedown', function() {
-                    setTimeout(() => forceMenuOrangeStyle(this), 10);
-                });
-                
-                menuSelect.addEventListener('mouseup', function() {
-                    setTimeout(() => forceMenuOrangeStyle(this), 50);
-                });
-                
-                menuSelect.addEventListener('blur', function() {
-                    setTimeout(() => forceMenuOrangeStyle(this), 100);
-                });
-                
-                // 옵션이 동적으로 추가될 때도 스타일 적용
-                const observer = new MutationObserver(function(mutations) {
-                    setTimeout(() => forceMenuOrangeStyle(menuSelect), 10);
-                });
-                observer.observe(menuSelect, { childList: true, subtree: true, attributes: true });
-                
-                // blur 이벤트 (드롭다운이 닫힐 때)
-                menuSelect.addEventListener('blur', function() {
-                    setTimeout(() => applyMenuOrangeStyle(this), 100);
-                });
-            }
+            // 메뉴 선택 활성화 확인
+            console.log('메뉴 선택 활성화 완료:', {
+                disabled: select.disabled,
+                menuCount: select.options.length,
+                pointerEvents: select.style.pointerEvents,
+                opacity: select.style.opacity
+            });
             
             // 직접 입력 옵션 처리는 전역 이벤트 리스너에서 처리 (중복 등록 방지)
         }
@@ -8241,12 +8203,12 @@
             if (!container) return;
             
             const exampleRestaurants = [
-                { name: '황제짬뽕', count: 342, rating: 4.7, bestMenu: '황제짬뽕', distance: '도보 10분', emoji: '📌', badge: 'gold' },
-                { name: '멘구락부 의왕', count: 245, rating: 4.5, bestMenu: '쇼유라멘', distance: '도보 10분', emoji: '', badge: 'bronze' },
-                { name: '저스트카츠 의왕점', count: 298, rating: 4.6, bestMenu: '등심카츠 정식', distance: '도보 5~10분', emoji: '📌', badge: 'silver' },
-                { name: '프랭크버거 의왕내손점', count: 267, rating: 4.6, bestMenu: '프랭크버거', distance: '도보 5~10분', emoji: '📌', badge: 'bronze' },
-                { name: '멘구락부 의왕', count: 245, rating: 4.5, bestMenu: '쇼유라멘', distance: '도보 10분', emoji: '📌', badge: 'bronze' },
-                { name: '일지오 페페', count: 223, rating: 4.5, bestMenu: '까르보나라 파스타', distance: '도보 10분', emoji: '📌', badge: 'bronze' }
+                { name: '황제짬뽕', count: 342, rating: 4.7, bestMenu: '황제짬뽕', distance: '도보 10분', emoji: '🥟', badge: 'gold' },
+                { name: '멘구락부 의왕', count: 245, rating: 4.5, bestMenu: '쇼유라멘', distance: '도보 10분', emoji: '🍜', badge: 'bronze' },
+                { name: '저스트카츠 의왕점', count: 298, rating: 4.6, bestMenu: '등심카츠 정식', distance: '도보 5~10분', emoji: '🍜', badge: 'silver' },
+                { name: '프랭크버거 의왕내손점', count: 267, rating: 4.6, bestMenu: '프랭크버거', distance: '도보 5~10분', emoji: '🔥', badge: 'bronze' },
+                { name: '멘구락부 의왕', count: 245, rating: 4.5, bestMenu: '쇼유라멘', distance: '도보 10분', emoji: '🍜', badge: 'bronze' },
+                { name: '일지오 페페', count: 223, rating: 4.5, bestMenu: '까르보나라 파스타', distance: '도보 10분', emoji: '🍝', badge: 'bronze' }
             ];
             
             container.innerHTML = exampleRestaurants.map((restaurant, index) => {
