@@ -3884,8 +3884,8 @@
                         <path d="M8 1L10 6L15 6L11 9L13 14L8 11L3 14L5 9L1 6L6 6L8 1Z" fill="currentColor"/>
                     </svg>
                 </button>
-                <button class="sort-menu-item" data-sort="review">
-                    <span>리뷰순</span>
+                <button class="sort-menu-item" data-sort="distance">
+                    <span>거리순</span>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 1L10 6L15 6L11 9L13 14L8 11L3 14L5 9L1 6L6 6L8 1Z" fill="currentColor"/>
                     </svg>
@@ -4945,14 +4945,14 @@
             '사진예술과',
             '순수미술과',
             '융합예술과',
-            '광고브랜드디자인과',
+            '광고\'브랜드디자인과',
             '시각디자인과',
             '게임미디어과',
             '디지털미디어디자인과',
             '애니메이션과',
             '영상디자인과',
             '리빙가구디자인과',
-            '스마트프로덕트디자인과',
+            '스마트로덕트디자인과',
             '플라워디자인과',
             '건축디자인과',
             '실내건축디자인과',
@@ -5518,7 +5518,7 @@
                         
                         // 버튼 텍스트 업데이트
                         if (currentSortText) {
-                            currentSortText.textContent = sortType === 'popular' ? '인기순' : '리뷰순';
+                            currentSortText.textContent = sortType === 'popular' ? '인기순' : '거리순';
                         }
                         
                         // 메뉴 닫기
@@ -6244,7 +6244,22 @@
         let renderedCategories = new Set(); // 이미 렌더링된 카테고리 추적
         
         // 현재 정렬 방식 저장 (전역 변수)
-        let currentSortType = 'popular'; // 'popular' 또는 'review'
+        let currentSortType = 'popular'; // 'popular' 또는 'distance'
+        
+        // 거리 텍스트를 숫자로 변환하는 함수
+        function parseDistance(distanceText) {
+            if (!distanceText) return 999; // 거리 정보가 없으면 맨 뒤로
+            
+            // "도보 10분" 형식에서 숫자 추출
+            const match = distanceText.match(/(\d+)(?:~(\d+))?/);
+            if (!match) return 999;
+            
+            const min = parseInt(match[1]) || 0;
+            const max = parseInt(match[2]) || min;
+            
+            // 범위가 있으면 평균값 사용, 없으면 해당 값 사용
+            return (min + max) / 2;
+        }
 
         function renderCategoryRestaurantList(selectedCategory = '전체', records = [], lazyLoad = false, sortType = 'popular') {
             const container = document.getElementById('categoryRestaurantList');
@@ -6335,12 +6350,15 @@
                             return avgRatingB - avgRatingA;
                         }
                         return statsB.count - statsA.count;
-                    } else if (sortType === 'review') {
-                        // 리뷰순: 리뷰 수가 많은 순, 같으면 평점이 높은 순
-                        if (statsB.count !== statsA.count) {
-                            return statsB.count - statsA.count;
+                    } else if (sortType === 'distance') {
+                        // 거리순: 거리가 가까운 순, 같으면 평점이 높은 순
+                        const distanceA = parseDistance(a.distance);
+                        const distanceB = parseDistance(b.distance);
+                        
+                        if (distanceA !== distanceB) {
+                            return distanceA - distanceB; // 거리가 가까운 순
                         }
-                        return avgRatingB - avgRatingA;
+                        return avgRatingB - avgRatingA; // 거리가 같으면 평점 높은 순
                     }
                     return 0;
                 });
