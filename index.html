@@ -105,6 +105,90 @@
             object-fit: contain;
         }
 
+        /* 햄버거 메뉴 버튼 */
+        .menu-toggle-btn {
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: opacity 0.2s;
+            color: #FFFFFF;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .menu-toggle-btn:hover {
+            opacity: 0.8;
+        }
+
+        .menu-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* 정렬 메뉴 컨테이너 (카테고리 아래) */
+        .sort-menu-container {
+            margin: 0 20px 16px 20px;
+            z-index: 150;
+        }
+
+        /* 정렬 메뉴 드롭다운 */
+        .sort-menu-dropdown {
+            background: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+
+        .sort-menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #111827;
+            transition: all 0.2s;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .sort-menu-item:hover {
+            background-color: #FFF5F5;
+        }
+
+        .sort-menu-item.active {
+            background-color: #FFF5F5;
+            color: #FD4B21;
+            font-weight: 700;
+        }
+
+        .sort-menu-item svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .sort-menu-item.active svg {
+            opacity: 1;
+        }
+
         /* 메인 콘텐츠 */
         .main-content {
             padding: 24px 20px;
@@ -144,6 +228,9 @@
             cursor: pointer;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             transition: all 0.2s;
+            touch-action: manipulation; /* 모바일 터치 지연 제거 */
+            -webkit-tap-highlight-color: transparent; /* 모바일 탭 하이라이트 제거 */
+            user-select: none; /* 텍스트 선택 방지 */
         }
 
         .category-btn:active {
@@ -477,6 +564,9 @@
             cursor: pointer;
             padding: 8px;
             transition: color 0.2s;
+            touch-action: manipulation; /* 모바일 터치 지연 제거 */
+            -webkit-tap-highlight-color: transparent; /* 모바일 탭 하이라이트 제거 */
+            user-select: none; /* 텍스트 선택 방지 */
         }
 
         .nav-item svg {
@@ -997,6 +1087,9 @@
             cursor: pointer;
             transition: all 0.2s;
             margin-top: 16px;
+            touch-action: manipulation; /* 모바일 터치 지연 제거 */
+            -webkit-tap-highlight-color: transparent; /* 모바일 탭 하이라이트 제거 */
+            user-select: none; /* 텍스트 선택 방지 */
         }
 
         .submit-btn:hover {
@@ -1021,6 +1114,9 @@
             margin: 20px;
             margin-top: 10px;
             box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .map-filter-buttons {
@@ -1031,6 +1127,7 @@
             -webkit-overflow-scrolling: touch;
             flex-wrap: nowrap;
             scrollbar-width: none; /* Firefox */
+            flex: 1;
         }
 
         .map-filter-buttons::-webkit-scrollbar {
@@ -1038,7 +1135,7 @@
         }
 
         .map-filter-btn {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.5);
             border: none;
             border-radius: 14px;
             padding: 8px 16px;
@@ -1053,12 +1150,12 @@
         }
 
         .map-filter-btn.active {
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
         }
 
         .map-filter-btn:not(.active) {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.35);
         }
 
         .filter-emoji {
@@ -1083,21 +1180,28 @@
             line-height: 20px;
         }
 
+        .map-filter-btn.active .filter-text {
+            color: #FD4B21;
+            font-weight: 700;
+        }
+
         .map-filter-btn:not(.active) .filter-text {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .filter-badge {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 8px;
             padding: 2px 8px;
             font-size: 12px;
             line-height: 16px;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .map-filter-btn.active .filter-badge {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.4);
+            color: #FD4B21;
+            font-weight: 700;
         }
 
         /* 카테고리별 식당 리스트 */
@@ -1972,6 +2076,15 @@
             .map-filter-container {
                 margin: 10px;
                 padding: 10px;
+            }
+
+            .sort-menu-container {
+                margin: 0 10px 12px 10px;
+            }
+
+            .sort-menu-toggle-btn {
+                padding: 10px 14px;
+                font-size: 13px;
             }
 
             .restaurant-card {
@@ -3395,7 +3508,7 @@
             <div class="header-content">
                 <div class="header-left">
                     <div class="logo-icon">
-                        <img src="https://i.imgur.com/dIGACdf.png" alt="계미지도 로고">
+                        <img src="https://i.imgur.com/36NNkrf.png" alt="계미지도 로고">
                     </div>
                     <h1 class="header-title">계미지도</h1>
                 </div>
@@ -3441,7 +3554,7 @@
                     <img src="https://i.imgur.com/FUVs45k.png" alt="메뉴 고민">
                 </div>
                 <h3 class="random-title">메뉴 고민 중이신가요?</h3>
-                <p class="random-subtitle">랜덤으로 식당을 추천해드릴게요</p>
+                <p class="random-subtitle">랜덤으로 메뉴를 추천해드려요</p>
                 <button class="random-btn" id="randomRecommendBtn">
                     <span class="random-btn-text">랜덤 추천 받기</span>
                 </button>
@@ -3505,7 +3618,7 @@
                         </svg>
                     </button>
                     <div class="logo-icon">
-                        <img src="https://i.imgur.com/dIGACdf.png" alt="계미지도 로고">
+                        <img src="https://i.imgur.com/36NNkrf.png" alt="계미지도 로고">
                     </div>
                     <h1 class="header-title">계미지도</h1>
                 </div>
@@ -3534,7 +3647,7 @@
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 3V13M3 8H13" stroke="#FF6B4A" stroke-width="2" stroke-linecap="round"/>
                     </svg>
-                    <span>이 플랫폼에 없는 식당 추가 요청</span>
+                    <span>없는 식당 추가하기</span>
                 </button>
                 <div id="customRestaurantInput" style="display: none; margin-top: 8px;">
                     <input type="text" id="customRestaurantName" class="form-input" placeholder="식당 이름을 입력해주세요">
@@ -3743,13 +3856,10 @@
             <div class="header-content">
                 <div class="header-left">
                     <div class="logo-icon">
-                        <img src="https://i.imgur.com/dIGACdf.png" alt="계미지도 로고">
+                        <img src="https://i.imgur.com/36NNkrf.png" alt="계미지도 로고">
                     </div>
                     <h1 class="header-title">계미지도</h1>
                 </div>
-                <button class="notification-btn" aria-label="알림">
-                    <img src="https://i.imgur.com/sKOiF0X.png" alt="알림">
-                </button>
             </div>
         </header>
 
@@ -3757,6 +3867,29 @@
         <div class="map-filter-container" id="mapFilterContainer">
             <div class="map-filter-buttons" id="mapFilterButtons">
                 <!-- 필터 버튼들이 여기에 동적으로 생성됩니다 -->
+            </div>
+            <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="정렬 메뉴">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5 5H17.5M2.5 10H17.5M2.5 15H17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- 정렬 메뉴 (카테고리 아래) -->
+        <div class="sort-menu-container" id="sortMenuContainer" style="display: none;">
+            <div class="sort-menu-dropdown" id="sortMenuDropdown">
+                <button class="sort-menu-item active" data-sort="popular">
+                    <span>인기순</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 1L10 6L15 6L11 9L13 14L8 11L3 14L5 9L1 6L6 6L8 1Z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="sort-menu-item" data-sort="review">
+                    <span>리뷰순</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 1L10 6L15 6L11 9L13 14L8 11L3 14L5 9L1 6L6 6L8 1Z" fill="currentColor"/>
+                    </svg>
+                </button>
             </div>
         </div>
 
@@ -4578,7 +4711,7 @@
             <div class="header-content">
                 <div class="header-left">
                     <div class="logo-icon">
-                        <img src="https://i.imgur.com/dIGACdf.png" alt="계미지도 로고">
+                        <img src="https://i.imgur.com/36NNkrf.png" alt="계미지도 로고">
                     </div>
                     <h1 class="header-title">계미지도</h1>
                 </div>
@@ -4989,19 +5122,32 @@
             
             // 예시 데이터는 제거 - 실제 데이터 로드 후 표시
             
+            // 카테고리 버튼 클릭 함수
+            function handleCategoryClick(category) {
+                currentSelectedCategory = category; // 카테고리 저장
+                
+                // 기록 화면으로 전환하고 카테고리 전달
+                showScreen('record');
+                // 화면 전환 후 약간의 지연을 두고 식당 목록 로드
+                setTimeout(() => {
+                    loadRestaurants(category);
+                }, 100);
+            }
+
             const categoryButtons = document.querySelectorAll('.category-btn');
             categoryButtons.forEach(btn => {
+                const category = btn.getAttribute('data-category');
+                
+                // click 이벤트
                 btn.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    currentSelectedCategory = category; // 카테고리 저장
-                    
-                    // 기록 화면으로 전환하고 카테고리 전달
-                    showScreen('record');
-                    // 화면 전환 후 약간의 지연을 두고 식당 목록 로드
-                    setTimeout(() => {
-                        loadRestaurants(category);
-                    }, 100);
+                    handleCategoryClick(category);
                 });
+                
+                // 모바일 터치 지원: touchstart 이벤트로 즉시 처리
+                btn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    handleCategoryClick(category);
+                }, { passive: false });
             });
 
             // 식당 선택 시 메뉴 로드 및 다음 단계 표시
@@ -5337,6 +5483,71 @@
             // 지도 화면 카테고리 필터 생성
             initMapFilters();
 
+            // 햄버거 메뉴 토글
+            const menuToggleBtn = document.getElementById('menuToggleBtn');
+            const sortMenuContainer = document.getElementById('sortMenuContainer');
+            const sortMenuDropdown = document.getElementById('sortMenuDropdown');
+            
+            if (menuToggleBtn && sortMenuContainer && sortMenuDropdown) {
+                // 메뉴 토글 버튼 클릭
+                menuToggleBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const isVisible = sortMenuContainer.style.display === 'block';
+                    sortMenuContainer.style.display = isVisible ? 'none' : 'block';
+                });
+
+                // 메뉴 외부 클릭 시 닫기
+                document.addEventListener('click', function(e) {
+                    if (!sortMenuContainer.contains(e.target) && !menuToggleBtn.contains(e.target)) {
+                        sortMenuContainer.style.display = 'none';
+                    }
+                });
+
+                // 정렬 옵션 클릭
+                const sortMenuItems = sortMenuDropdown.querySelectorAll('.sort-menu-item');
+                const currentSortText = document.getElementById('currentSortText');
+                
+                sortMenuItems.forEach(item => {
+                    item.addEventListener('click', function() {
+                        const sortType = this.getAttribute('data-sort');
+                        currentSortType = sortType;
+                        
+                        // 활성화 상태 업데이트
+                        sortMenuItems.forEach(i => i.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // 버튼 텍스트 업데이트
+                        if (currentSortText) {
+                            currentSortText.textContent = sortType === 'popular' ? '인기순' : '리뷰순';
+                        }
+                        
+                        // 메뉴 닫기
+                        if (sortMenuContainer) {
+                            sortMenuContainer.style.display = 'none';
+                        }
+                        
+                        // 현재 선택된 카테고리로 다시 렌더링 (실제 데이터 기반)
+                        const activeFilter = document.querySelector('.map-filter-btn.active');
+                        const selectedCategory = activeFilter ? activeFilter.getAttribute('data-filter') : '전체';
+                        
+                        // 데이터 로드 및 정렬 적용
+                        loadRecords(false).then(records => {
+                            renderCategoryRestaurantList(selectedCategory, records, false, currentSortType);
+                        }).catch(err => {
+                            console.error('데이터 로드 오류:', err);
+                            const records = recordsCache || [];
+                            renderCategoryRestaurantList(selectedCategory, records, false, currentSortType);
+                        });
+                    });
+                });
+
+                // 초기 활성화 상태 설정
+                const initialActiveItem = sortMenuDropdown.querySelector(`[data-sort="${currentSortType}"]`);
+                if (initialActiveItem) {
+                    initialActiveItem.classList.add('active');
+                }
+            }
+
             // 지도 카드 닫기 버튼
             const closeCardBtn = document.getElementById('closeCardBtn');
             const restaurantCard = document.getElementById('restaurantCard');
@@ -5628,191 +5839,154 @@
                 });
             }
 
-            // 기록 완료 버튼 클릭
-            const submitBtn = document.getElementById('submitBtn');
-            let isSubmitting = false; // 제출 중 플래그
-            if (submitBtn) {
-                submitBtn.addEventListener('click', async function(e) {
+            // 기록 완료 버튼 클릭 함수
+            async function handleSubmitRecord(e) {
+                if (e) {
                     e.preventDefault(); // 기본 동작 방지
-                    
-                    // 이미 제출 중이면 중복 제출 방지
-                    if (isSubmitting) {
-                        showToast('이미 기록하였습니다.', 'error');
-                        return;
-                    }
-                    
-                    console.log('기록 완료 버튼 클릭됨');
-                    
-                    // 제출 시작
-                    isSubmitting = true;
-                    submitBtn.disabled = true;
-                    submitBtn.style.opacity = '0.6';
-                    submitBtn.style.cursor = 'not-allowed';
-                    
-                    // 필수 필드 검증
-                    const restaurant = document.getElementById('restaurantSelect').value;
-                    const menuSelect = document.getElementById('menuSelect');
-                    const menu = menuSelect ? menuSelect.value : '';
-                    const department = document.getElementById('departmentSelect').value;
+                }
+                
+                // 이미 제출 중이면 중복 제출 방지
+                if (isSubmitting) {
+                    showToast('이미 기록하였습니다.', 'error');
+                    return;
+                }
+                
+                console.log('기록 완료 버튼 클릭됨');
+                
+                const submitBtn = document.getElementById('submitBtn');
+                if (!submitBtn) {
+                    console.error('submitBtn을 찾을 수 없습니다.');
+                    return;
+                }
+                
+                // 제출 시작
+                isSubmitting = true;
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.6';
+                submitBtn.style.cursor = 'not-allowed';
+                
+                // 필수 필드 검증
+                const restaurant = document.getElementById('restaurantSelect').value;
+                const menuSelect = document.getElementById('menuSelect');
+                const menu = menuSelect ? menuSelect.value : '';
+                const department = document.getElementById('departmentSelect').value;
 
-                    console.log('폼 제출 검증:', { restaurant, menu, department });
-                    
-                    if (!restaurant || !menu || !department) {
-                        let errorMsg = '필수 항목을 모두 입력해주세요.';
-                        if (!restaurant) errorMsg = '식당을 선택해주세요.';
-                        else if (!menu) errorMsg = '메뉴를 입력해주세요.';
-                        else if (!department) errorMsg = '학과를 선택해주세요.';
-                        // 검증 실패 시 플래그 해제 및 버튼 재활성화
+                console.log('폼 제출 검증:', { restaurant, menu, department });
+                
+                if (!restaurant || !menu || !department) {
+                    let errorMsg = '필수 항목을 모두 입력해주세요.';
+                    if (!restaurant) errorMsg = '식당을 선택해주세요.';
+                    else if (!menu) errorMsg = '메뉴를 입력해주세요.';
+                    else if (!department) errorMsg = '학과를 선택해주세요.';
+                    // 검증 실패 시 플래그 해제 및 버튼 재활성화
+                    isSubmitting = false;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    showToast(errorMsg, 'error');
+                    return;
+                }
+
+                if (!selectedMood) {
+                    // 검증 실패 시 플래그 해제 및 버튼 재활성화
+                    isSubmitting = false;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    showToast('기분을 선택해주세요.', 'error');
+                    return;
+                }
+
+                if (ratingScores.taste === 0 || ratingScores.portion === 0 || 
+                    ratingScores.value === 0 || ratingScores.service === 0) {
+                    // 검증 실패 시 플래그 해제 및 버튼 재활성화
+                    isSubmitting = false;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    showToast('상세 평가를 모두 입력해주세요.', 'error');
+                    return;
+                }
+
+                // 현재 선택된 카테고리 가져오기
+                const currentCategory = currentSelectedCategory || '미지정';
+                console.log('선택된 카테고리:', currentCategory);
+
+                // 데이터 수집 (Google Apps Script가 기대하는 필드명으로 매핑)
+                const formData = {
+                    Timestamp: new Date().toISOString(),
+                    Restaurant: restaurant || '',
+                    Menu: menu || '',
+                    Department: department || '',
+                    Time: selectedTime || '',
+                    Mood: selectedMood || '',
+                    TasteRating: ratingScores.taste || 0,
+                    PortionRating: ratingScores.portion || 0,
+                    ValueRating: ratingScores.value || 0,
+                    ServiceRating: ratingScores.service || 0,
+                    Visuals: selectedVisuals.join(', ') || '',
+                    Keywords: selectedKeywords.join(', ') || ''
+                };
+
+                console.log('제출할 데이터:', formData);
+                console.log('선택된 값들:', {
+                    restaurant: restaurant,
+                    menu: menu,
+                    department: department,
+                    mood: selectedMood,
+                    ratingScores: ratingScores,
+                    keywords: selectedKeywords
+                });
+                console.log('API URL:', API_URL);
+
+                try {
+                    // API URL이 설정되지 않았으면 경고
+                    if (API_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+                        // API URL 미설정 시 플래그 해제 및 버튼 재활성화
                         isSubmitting = false;
                         submitBtn.disabled = false;
                         submitBtn.style.opacity = '1';
                         submitBtn.style.cursor = 'pointer';
-                        showToast(errorMsg, 'error');
+                        showToast('Google Apps Script API URL을 설정해주세요.', 'error');
+                        console.log('제출할 데이터:', formData);
                         return;
                     }
 
-                    if (!selectedMood) {
-                        // 검증 실패 시 플래그 해제 및 버튼 재활성화
-                        isSubmitting = false;
-                        submitBtn.disabled = false;
-                        submitBtn.style.opacity = '1';
-                        submitBtn.style.cursor = 'pointer';
-                        showToast('기분을 선택해주세요.', 'error');
-                        return;
-                    }
-
-                    if (ratingScores.taste === 0 || ratingScores.portion === 0 || 
-                        ratingScores.value === 0 || ratingScores.service === 0) {
-                        // 검증 실패 시 플래그 해제 및 버튼 재활성화
-                        isSubmitting = false;
-                        submitBtn.disabled = false;
-                        submitBtn.style.opacity = '1';
-                        submitBtn.style.cursor = 'pointer';
-                        showToast('상세 평가를 모두 입력해주세요.', 'error');
-                        return;
-                    }
-
-                    // 현재 선택된 카테고리 가져오기
-                    const currentCategory = currentSelectedCategory || '미지정';
-                    console.log('선택된 카테고리:', currentCategory);
-
-                    // 데이터 수집 (Google Apps Script가 기대하는 필드명으로 매핑)
-                    const formData = {
-                        Timestamp: new Date().toISOString(),
-                        Restaurant: restaurant || '',
-                        Menu: menu || '',
-                        Department: department || '',
-                        Time: selectedTime || '',
-                        Mood: selectedMood || '',
-                        TasteRating: ratingScores.taste || 0,
-                        PortionRating: ratingScores.portion || 0,
-                        ValueRating: ratingScores.value || 0,
-                        ServiceRating: ratingScores.service || 0,
-                        Visuals: selectedVisuals.join(', ') || '',
-                        Keywords: selectedKeywords.join(', ') || ''
-                    };
-
-                    console.log('제출할 데이터:', formData);
-                    console.log('선택된 값들:', {
-                        restaurant: restaurant,
-                        menu: menu,
-                        department: department,
-                        mood: selectedMood,
-                        ratingScores: ratingScores,
-                        keywords: selectedKeywords
-                    });
+                    // POST 요청
+                    console.log('API 요청 시작...');
                     console.log('API URL:', API_URL);
-
+                    console.log('전송할 데이터:', JSON.stringify(formData));
+                    
                     try {
-                        // API URL이 설정되지 않았으면 경고
-                        if (API_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
-                            // API URL 미설정 시 플래그 해제 및 버튼 재활성화
-                            isSubmitting = false;
-                            submitBtn.disabled = false;
-                            submitBtn.style.opacity = '1';
-                            submitBtn.style.cursor = 'pointer';
-                            showToast('Google Apps Script API URL을 설정해주세요.', 'error');
-                            console.log('제출할 데이터:', formData);
-                            return;
-                        }
-
-                        // POST 요청
-                        console.log('API 요청 시작...');
-                        console.log('API URL:', API_URL);
-                        console.log('전송할 데이터:', JSON.stringify(formData));
+                        // Google Apps Script는 URL-encoded 형식을 선호
+                        const formDataEncoded = new URLSearchParams();
+                        Object.keys(formData).forEach(key => {
+                            const value = formData[key];
+                            if (value !== null && value !== undefined) {
+                                formDataEncoded.append(key, String(value));
+                            }
+                        });
                         
+                        console.log('전송할 데이터:', formData);
+                        console.log('전송할 데이터 (URL-encoded):', formDataEncoded.toString());
+                        
+                        // 먼저 일반 POST 요청 시도 (CORS 허용 시)
+                        let response;
                         try {
-                            // Google Apps Script는 URL-encoded 형식을 선호
-                            const formDataEncoded = new URLSearchParams();
-                            Object.keys(formData).forEach(key => {
-                                const value = formData[key];
-                                if (value !== null && value !== undefined) {
-                                    formDataEncoded.append(key, String(value));
-                                }
+                            response = await fetch(API_URL, {
+                                method: 'POST',
+                                headers: { 
+                                    'Content-Type': 'application/x-www-form-urlencoded' 
+                                },
+                                body: formDataEncoded.toString()
                             });
                             
-                            console.log('전송할 데이터:', formData);
-                            console.log('전송할 데이터 (URL-encoded):', formDataEncoded.toString());
+                            console.log('응답 상태:', response.status);
+                            console.log('응답 OK:', response.ok);
                             
-                            // 먼저 일반 POST 요청 시도 (CORS 허용 시)
-                            let response;
-                            try {
-                                response = await fetch(API_URL, {
-                                    method: 'POST',
-                                    headers: { 
-                                        'Content-Type': 'application/x-www-form-urlencoded' 
-                                    },
-                                    body: formDataEncoded.toString()
-                                });
-                                
-                                console.log('응답 상태:', response.status);
-                                console.log('응답 OK:', response.ok);
-                                
-                                if (response.ok) {
-                                    const result = await response.json();
-                                    console.log('응답 받음:', result);
-                                    showToast('식사가 기록되었습니다! 🎉', 'success');
-                                    
-                                    // 캐시는 유지 (자동 새로고침 안 함)
-                                    // recordsCache = null;
-                                    // recordsCacheTime = 0;
-                                    
-                                    // 트렌드나 식당 목록 자동 업데이트 제거
-                                    // 사용자가 직접 화면을 새로고침하거나 다시 방문할 때만 업데이트됨
-                                    
-                                    // 폼 초기화
-                                    resetForm();
-                                    
-                                    // 홈 화면으로 이동
-                                    setTimeout(() => {
-                                        isSubmitting = false;
-                                        submitBtn.disabled = false;
-                                        submitBtn.style.opacity = '1';
-                                        submitBtn.style.cursor = 'pointer';
-                                        showScreen('home');
-                                    }, 500);
-                                } else {
-                                    // 제출 실패 시 플래그 해제 및 버튼 재활성화
-                                    isSubmitting = false;
-                                    submitBtn.disabled = false;
-                                    submitBtn.style.opacity = '1';
-                                    submitBtn.style.cursor = 'pointer';
-                                    throw new Error(`응답 상태: ${response.status}`);
-                                }
-                            } catch (fetchError) {
-                                // CORS 오류인 경우 no-cors 모드로 재시도
-                                console.warn('일반 POST 실패, no-cors 모드로 재시도:', fetchError);
-                                
-                                await fetch(API_URL, {
-                                    method: 'POST',
-                                    mode: 'no-cors',
-                                    headers: { 
-                                        'Content-Type': 'application/x-www-form-urlencoded' 
-                                    },
-                                    body: formDataEncoded.toString()
-                                });
-                                
-                                console.log('데이터 전송 완료 (no-cors 모드)');
+                            if (response.ok) {
+                                const result = await response.json();
+                                console.log('응답 받음:', result);
                                 showToast('식사가 기록되었습니다! 🎉', 'success');
                                 
                                 // 캐시는 유지 (자동 새로고침 안 함)
@@ -5833,28 +6007,83 @@
                                     submitBtn.style.cursor = 'pointer';
                                     showScreen('home');
                                 }, 500);
+                            } else {
+                                // 제출 실패 시 플래그 해제 및 버튼 재활성화
+                                isSubmitting = false;
+                                submitBtn.disabled = false;
+                                submitBtn.style.opacity = '1';
+                                submitBtn.style.cursor = 'pointer';
+                                throw new Error(`응답 상태: ${response.status}`);
                             }
+                        } catch (fetchError) {
+                            // CORS 오류인 경우 no-cors 모드로 재시도
+                            console.warn('일반 POST 실패, no-cors 모드로 재시도:', fetchError);
                             
-                        } catch (error) {
-                            console.error('전체 오류:', error);
-                            console.error('오류 상세:', error.message);
-                            // 제출 실패 시 플래그 해제 및 버튼 재활성화
-                            isSubmitting = false;
-                            submitBtn.disabled = false;
-                            submitBtn.style.opacity = '1';
-                            submitBtn.style.cursor = 'pointer';
-                            showToast('기록 저장 중 오류가 발생했습니다. 콘솔을 확인해주세요.', 'error');
+                            await fetch(API_URL, {
+                                method: 'POST',
+                                mode: 'no-cors',
+                                headers: { 
+                                    'Content-Type': 'application/x-www-form-urlencoded' 
+                                },
+                                body: formDataEncoded.toString()
+                            });
+                            
+                            console.log('데이터 전송 완료 (no-cors 모드)');
+                            showToast('식사가 기록되었습니다! 🎉', 'success');
+                            
+                            // 캐시는 유지 (자동 새로고침 안 함)
+                            // recordsCache = null;
+                            // recordsCacheTime = 0;
+                            
+                            // 트렌드나 식당 목록 자동 업데이트 제거
+                            // 사용자가 직접 화면을 새로고침하거나 다시 방문할 때만 업데이트됨
+                            
+                            // 폼 초기화
+                            resetForm();
+                            
+                            // 홈 화면으로 이동
+                            setTimeout(() => {
+                                isSubmitting = false;
+                                submitBtn.disabled = false;
+                                submitBtn.style.opacity = '1';
+                                submitBtn.style.cursor = 'pointer';
+                                showScreen('home');
+                            }, 500);
                         }
+                        
                     } catch (error) {
                         console.error('전체 오류:', error);
+                        console.error('오류 상세:', error.message);
                         // 제출 실패 시 플래그 해제 및 버튼 재활성화
                         isSubmitting = false;
                         submitBtn.disabled = false;
                         submitBtn.style.opacity = '1';
                         submitBtn.style.cursor = 'pointer';
-                        showToast('기록 저장 중 오류가 발생했습니다.', 'error');
+                        showToast('기록 저장 중 오류가 발생했습니다. 콘솔을 확인해주세요.', 'error');
                     }
-                });
+                } catch (error) {
+                    console.error('전체 오류:', error);
+                    // 제출 실패 시 플래그 해제 및 버튼 재활성화
+                    isSubmitting = false;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                    showToast('기록 저장 중 오류가 발생했습니다.', 'error');
+                }
+            }
+
+            // 기록 완료 버튼 클릭 이벤트 (데스크톱 및 모바일 모두 지원)
+            const submitBtn = document.getElementById('submitBtn');
+            let isSubmitting = false; // 제출 중 플래그
+            if (submitBtn) {
+                // click 이벤트
+                submitBtn.addEventListener('click', handleSubmitRecord);
+                
+                // 모바일 터치 지원: touchstart 이벤트로 즉시 처리
+                submitBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    handleSubmitRecord(e);
+                }, { passive: false });
             } else {
                 console.error('submitBtn을 찾을 수 없습니다.');
             }
@@ -5998,8 +6227,14 @@
             updateRestaurantList(category);
             
             // 카테고리별 식당 리스트도 필터링하여 업데이트 (트렌드 데이터 포함)
-            const records = recordsCache || [];
-            renderCategoryRestaurantList(category, records);
+            // 최신 데이터를 가져와서 정렬 적용
+            loadRecords(false).then(records => {
+                renderCategoryRestaurantList(category, records, false, currentSortType);
+            }).catch(err => {
+                console.error('데이터 로드 오류:', err);
+                const records = recordsCache || [];
+                renderCategoryRestaurantList(category, records, false, currentSortType);
+            });
             
             console.log('필터링:', category);
         }
@@ -6008,14 +6243,19 @@
         let restaurantStatsCache = null; // 통계 캐시
         let renderedCategories = new Set(); // 이미 렌더링된 카테고리 추적
         
-        function renderCategoryRestaurantList(selectedCategory = '전체', records = [], lazyLoad = false) {
+        // 현재 정렬 방식 저장 (전역 변수)
+        let currentSortType = 'popular'; // 'popular' 또는 'review'
+
+        function renderCategoryRestaurantList(selectedCategory = '전체', records = [], lazyLoad = false, sortType = 'popular') {
             const container = document.getElementById('categoryRestaurantList');
             if (!container) return;
             
             // 첫 로드가 아니고 lazyLoad가 false면 전체 초기화
             if (!lazyLoad) {
-            container.innerHTML = '';
+                container.innerHTML = '';
                 renderedCategories.clear();
+                // 정렬 변경 시 통계 캐시도 초기화하여 최신 데이터 반영
+                restaurantStatsCache = null;
             }
             
             // 트렌드 데이터에서 식당별 통계 계산 (캐시 사용)
@@ -6078,8 +6318,32 @@
                     return;
                 }
                 
-                const categoryRestaurants = restaurants[category] || [];
+                let categoryRestaurants = restaurants[category] || [];
                 if (categoryRestaurants.length === 0) return;
+                
+                // 정렬 적용
+                categoryRestaurants = [...categoryRestaurants].sort((a, b) => {
+                    const statsA = restaurantStats[a.name] || { count: 0, ratings: [], totalRating: 0 };
+                    const statsB = restaurantStats[b.name] || { count: 0, ratings: [], totalRating: 0 };
+                    
+                    const avgRatingA = statsA.ratings.length > 0 ? statsA.totalRating / statsA.ratings.length : 0;
+                    const avgRatingB = statsB.ratings.length > 0 ? statsB.totalRating / statsB.ratings.length : 0;
+                    
+                    if (sortType === 'popular') {
+                        // 인기순: 평점이 높은 순, 같으면 리뷰 수가 많은 순
+                        if (avgRatingB !== avgRatingA) {
+                            return avgRatingB - avgRatingA;
+                        }
+                        return statsB.count - statsA.count;
+                    } else if (sortType === 'review') {
+                        // 리뷰순: 리뷰 수가 많은 순, 같으면 평점이 높은 순
+                        if (statsB.count !== statsA.count) {
+                            return statsB.count - statsA.count;
+                        }
+                        return avgRatingB - avgRatingA;
+                    }
+                    return 0;
+                });
                 
                 renderedCategories.add(category);
                 
@@ -6189,7 +6453,7 @@
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
                                 // 다음 카테고리들 로드
-                                renderCategoryRestaurantList('전체', records, true);
+                                renderCategoryRestaurantList('전체', records, true, currentSortType);
                                 observer.disconnect();
                             }
                         });
@@ -7883,11 +8147,11 @@
                     distance: stats.distance || '정보 없음'
                 };
             }).sort((a, b) => {
-                // 리뷰 수가 같으면 평점으로 정렬, 다르면 리뷰 수로 정렬
-                if (b.count === a.count) {
-                    return b.avgRating - a.avgRating;
+                // 별점순으로 정렬 (평점이 같으면 리뷰 수로 정렬)
+                if (b.avgRating === a.avgRating) {
+                    return b.count - a.count;
                 }
-                return b.count - a.count;
+                return b.avgRating - a.avgRating;
             }).slice(0, 10); // 상위 10개
             
             console.log('이달의 식당 랭킹 목록:', restaurantList.length, '개');
@@ -8397,7 +8661,7 @@
             }
             
             // 카테고리별 식당 리스트 생성 (트렌드 데이터 포함)
-            renderCategoryRestaurantList('전체', records);
+            renderCategoryRestaurantList('전체', records, false, currentSortType);
         }
         
         // 페이지 로드 시 데이터 미리 로드 (백그라운드, 로딩 표시 없이)
