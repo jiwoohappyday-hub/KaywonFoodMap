@@ -82,7 +82,7 @@
             color: #111827;
         }
 
-        .notification-btn {
+        .settings-btn {
             width: 44px;
             height: 44px;
             background: transparent;
@@ -95,11 +95,11 @@
             transition: background-color 0.2s;
         }
 
-        .notification-btn:hover {
+        .settings-btn:hover {
             background-color: #F3F4F6;
         }
 
-        .notification-btn img {
+        .settings-btn img {
             width: 24px;
             height: 24px;
             object-fit: contain;
@@ -3430,7 +3430,7 @@
             background: #D1D5DB;
         }
 
-        /* 문의함 스타일 */
+        /* 의견보내기 스타일 */
         .inquiry-form {
             display: flex;
             flex-direction: column;
@@ -3512,8 +3512,8 @@
                     </div>
                     <h1 class="header-title">계미지도</h1>
                 </div>
-                <button class="notification-btn" aria-label="알림">
-                    <img src="https://i.imgur.com/sKOiF0X.png" alt="알림">
+                <button class="settings-btn" aria-label="설정" onclick="showScreen('settings')">
+                    <img src="https://i.imgur.com/cNUoh7E.png" alt="설정">
                 </button>
             </div>
         </header>
@@ -3594,7 +3594,7 @@
                     <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 20L3.553 17.276C3.214 17.107 3 16.76 3 16.382V5.618C3 5.24 3.214 4.893 3.553 4.724L9 2M9 20L15 17M9 20V2M15 17L20.447 19.276C20.786 19.445 21 19.792 21 20.17V7.618C21 7.24 20.786 6.893 20.447 6.724L15 4M15 17V4M15 4L9 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="nav-label">지도</span>
+                    <span class="nav-label">식당</span>
                 </button>
                 <button class="nav-item" data-view="trend" onclick="showScreen('trend')">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3622,8 +3622,8 @@
                     </div>
                     <h1 class="header-title">계미지도</h1>
                 </div>
-                <button class="notification-btn" aria-label="알림">
-                    <img src="https://i.imgur.com/sKOiF0X.png" alt="알림">
+                <button class="settings-btn" aria-label="설정" onclick="showScreen('settings')">
+                    <img src="https://i.imgur.com/cNUoh7E.png" alt="설정">
                 </button>
             </div>
         </header>
@@ -3837,7 +3837,7 @@
                     <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 20L3.553 17.276C3.214 17.107 3 16.76 3 16.382V5.618C3 5.24 3.214 4.893 3.553 4.724L9 2M9 20L15 17M9 20V2M15 17L20.447 19.276C20.786 19.445 21 19.792 21 20.17V7.618C21 7.24 20.786 6.893 20.447 6.724L15 4M15 17V4M15 4L9 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="nav-label">지도</span>
+                    <span class="nav-label">식당화면</span>
                 </button>
                 <button class="nav-item" data-view="trend">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4692,7 +4692,7 @@
                     <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 20L3.553 17.276C3.214 17.107 3 16.76 3 16.382V5.618C3 5.24 3.214 4.893 3.553 4.724L9 2M9 20L15 17M9 20V2M15 17L20.447 19.276C20.786 19.445 21 19.792 21 20.17V7.618C21 7.24 20.786 6.893 20.447 6.724L15 4M15 17V4M15 4L9 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="nav-label">지도</span>
+                    <span class="nav-label">식당</span>
                 </button>
                 <button class="nav-item" data-view="trend">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4715,8 +4715,8 @@
                     </div>
                     <h1 class="header-title">계미지도</h1>
                 </div>
-                <button class="notification-btn" aria-label="알림">
-                    <img src="https://i.imgur.com/sKOiF0X.png" alt="알림">
+                <button class="settings-btn" aria-label="설정" onclick="showScreen('settings')">
+                    <img src="https://i.imgur.com/cNUoh7E.png" alt="설정">
                 </button>
             </div>
         </header>
@@ -4825,29 +4825,6 @@
                 </div>
             </div>
 
-            <!-- 문의함 -->
-            <div class="trend-card">
-                <div class="trend-card-title">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 4H18V16H2V4Z" stroke="#FF6B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 4L10 10L18 4" stroke="#FF6B4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>문의함</span>
-                </div>
-                <div class="inquiry-form">
-                    <div class="inquiry-field">
-                        <label class="inquiry-label">제목</label>
-                        <input type="text" id="inquiryTitle" class="inquiry-input" placeholder="문의 제목을 입력해주세요">
-                    </div>
-                    <div class="inquiry-field">
-                        <label class="inquiry-label">내용</label>
-                        <textarea id="inquiryContent" class="inquiry-textarea" placeholder="문의 내용을 입력해주세요" rows="5"></textarea>
-                    </div>
-                    <button type="button" id="submitInquiryBtn" class="inquiry-submit-btn">
-                        <span>문의하기</span>
-                    </button>
-                </div>
-            </div>
         </main>
 
         <!-- 하단 네비게이션 (기록 화면에서는 숨김) -->
@@ -4863,7 +4840,7 @@
                     <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 20L3.553 17.276C3.214 17.107 3 16.76 3 16.382V5.618C3 5.24 3.214 4.893 3.553 4.724L9 2M9 20L15 17M9 20V2M15 17L20.447 19.276C20.786 19.445 21 19.792 21 20.17V7.618C21 7.24 20.786 6.893 20.447 6.724L15 4M15 17V4M15 4L9 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span class="nav-label">지도</span>
+                    <span class="nav-label">식당</span>
                 </button>
                 <button class="nav-item active" data-view="trend" onclick="showScreen('trend')">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4873,6 +4850,56 @@
                 </button>
             </div>
         </nav>
+    </section>
+
+    <!-- 설정 화면 -->
+    <section id="settingsScreen" class="screen">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="back-btn" onclick="showScreen('home')" aria-label="뒤로가기">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="logo-icon">
+                        <img src="https://i.imgur.com/36NNkrf.png" alt="계미지도 로고">
+                    </div>
+                    <h1 class="header-title">계미지도</h1>
+                </div>
+                <button class="settings-btn" aria-label="설정" style="visibility: hidden;">
+                    <img src="https://i.imgur.com/cNUoh7E.png" alt="설정">
+                </button>
+            </div>
+        </header>
+
+        <!-- 메인 콘텐츠 -->
+        <main class="trend-content">
+            <!-- 의견보내기 -->
+            <div class="trend-card">
+                <div class="trend-card-title">
+                    <img src="https://i.imgur.com/cNUoh7E.png" alt="의견보내기" style="width: 20px; height: 20px;">
+                    <span>의견보내기</span>
+                </div>
+                <div style="font-size: 12px; color: #6B7280; margin-bottom: 16px; padding: 0 4px;">
+                    * 앱을 이용하시고 개선 사항이 있으시다면 알려주세요
+                </div>
+                <div class="inquiry-form">
+                    <div class="inquiry-field">
+                        <label class="inquiry-label">제목</label>
+                        <input type="text" id="settingsInquiryTitle" class="inquiry-input" placeholder="문의 제목을 입력해주세요">
+                    </div>
+                    <div class="inquiry-field">
+                        <label class="inquiry-label">내용</label>
+                        <textarea id="settingsInquiryContent" class="inquiry-textarea" placeholder="문의 내용을 입력해주세요" rows="5"></textarea>
+                    </div>
+                    <button type="button" id="settingsSubmitInquiryBtn" class="inquiry-submit-btn">
+                        <span>문의하기</span>
+                    </button>
+                </div>
+            </div>
+        </main>
     </section>
 
     <script>
@@ -5829,13 +5856,13 @@
                 });
             }
             
-            // 문의함 제출 버튼
-            const submitInquiryBtn = document.getElementById('submitInquiryBtn');
-            const inquiryTitle = document.getElementById('inquiryTitle');
-            const inquiryContent = document.getElementById('inquiryContent');
-            if (submitInquiryBtn && inquiryTitle && inquiryContent) {
-                submitInquiryBtn.addEventListener('click', function() {
-                    submitInquiry(inquiryTitle.value, inquiryContent.value);
+            // 설정 화면 문의하기 버튼
+            const settingsSubmitInquiryBtn = document.getElementById('settingsSubmitInquiryBtn');
+            const settingsInquiryTitle = document.getElementById('settingsInquiryTitle');
+            const settingsInquiryContent = document.getElementById('settingsInquiryContent');
+            if (settingsSubmitInquiryBtn && settingsInquiryTitle && settingsInquiryContent) {
+                settingsSubmitInquiryBtn.addEventListener('click', function() {
+                    submitInquiry(settingsInquiryTitle.value, settingsInquiryContent.value, 'settingsInquiryTitle', 'settingsInquiryContent');
                 });
             }
 
@@ -7704,8 +7731,8 @@
         window.deleteComment = deleteComment;
         
         // 문의함 기능
-        async function submitInquiry(title, content) {
-            console.log('submitInquiry 호출됨:', { title, content });
+        async function submitInquiry(title, content, titleId = 'inquiryTitle', contentId = 'inquiryContent') {
+            console.log('submitInquiry 호출됨:', { title, content, titleId, contentId });
             
             if (!title || !title.trim() || !content || !content.trim()) {
                 showToast('제목과 내용을 모두 입력해주세요.', 'error');
@@ -7760,9 +7787,11 @@
                         console.log('문의하기 응답:', result);
                         showToast('문의가 접수되었습니다. 감사합니다! 🎉', 'success');
                         
-                        // 폼 초기화
-                        document.getElementById('inquiryTitle').value = '';
-                        document.getElementById('inquiryContent').value = '';
+                        // 폼 초기화 - 전달받은 ID 사용
+                        const titleElement = document.getElementById(titleId);
+                        const contentElement = document.getElementById(contentId);
+                        if (titleElement) titleElement.value = '';
+                        if (contentElement) contentElement.value = '';
                     } else {
                         const errorText = await response.text();
                         console.error('응답 오류:', response.status, errorText);
@@ -7786,9 +7815,11 @@
                         console.log('문의하기 데이터 전송 완료 (no-cors 모드)');
                         showToast('문의가 접수되었습니다. 감사합니다! 🎉', 'success');
                         
-                        // 폼 초기화
-                        document.getElementById('inquiryTitle').value = '';
-                        document.getElementById('inquiryContent').value = '';
+                        // 폼 초기화 - 전달받은 ID 사용
+                        const titleElement = document.getElementById(titleId);
+                        const contentElement = document.getElementById(contentId);
+                        if (titleElement) titleElement.value = '';
+                        if (contentElement) contentElement.value = '';
                     } catch (noCorsError) {
                         console.error('no-cors 모드 전송 실패:', noCorsError);
                         throw noCorsError;
